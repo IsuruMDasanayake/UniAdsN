@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniAds - Gateway to Higher Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Global Styles */
+:root {
+    --primary-color: #1e90ff;
+    --accent-color: #ffab00;
+    --bg-light: #f8f9fa;
+    --bg-dark: #343a40;
+    --text-dark: #212529;
+    --text-light: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-color);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.navbar .logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.navbar .cta {
+    background: var(--accent-color);
+    color: var(--text-light);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--text-light);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.3;
+}
+
+.hero span {
+    color: var(--accent-color);
+}
+
+.hero .btn-primary {
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about {
+    background: var(--bg-light);
+}
+
+.services-grid, .features-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.service-card, .feature-item {
+    background: var(--text-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+}
+
+.service-card img, .feature-item img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+}
+
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">Uni<span>Ads</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#explore" class="cta">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Empowering Education with <span>UniAds</span></h1>
+            <p>Discover the best institutions, explore courses, and take your first step towards a brighter future with UniAds.</p>
+            <a href="#services" class="btn-primary">Explore Programs</a>
+        </div>
+        <div class="hero-image">
+            <img src="uniads-hero.png" alt="Education Hero">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About <span>UniAds</span></h2>
+                <p>UniAds is the ultimate platform for students in Sri Lanka, connecting them with top-tier universities, degree programs, and opportunities for personal growth. We’re here to simplify your educational journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>What We Offer</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="search.png" alt="Search">
+                    <h3>Search Institutions</h3>
+                    <p>Easily find institutions and programs that match your academic goals.</p>
+                </div>
+                <div class="service-card">
+                    <img src="apply.png" alt="Apply">
+                    <h3>Online Applications</h3>
+                    <p>Submit applications directly through UniAds with a seamless process.</p>
+                </div>
+                <div class="service-card">
+                    <img src="connect.png" alt="Connect">
+                    <h3>Connect with Experts</h3>
+                    <p>Engage with universities and get answers to all your queries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <img src="dashboard.png" alt="Dashboard">
+                    <h4>Intuitive Dashboard</h4>
+                    <p>Manage your applications and explore courses with ease.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="filters.png" alt="Filters">
+                    <h4>Advanced Filters</h4>
+                    <p>Search by location, course type, and duration to find your perfect match.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="real-time.png" alt="Real-Time">
+                    <h4>Real-Time Updates</h4>
+                    <p>Stay updated with notifications on deadlines and upcoming events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 UniAds | All Rights Reserved | Designed for Sri Lanka’s Future Leaders.</p>
+        </div>
+    </footer>
+</body>
+</html>

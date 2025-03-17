@@ -1,0 +1,222 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Use your UniAds font here */
+}
+
+/* Container Styles */
+.courses-container {
+    max-width: 1400px; /* Set maximum width */
+    margin: 0 auto;
+    height: calc(100vh - 140px); /* Full height minus navbar */
+    overflow-x: hidden; /* Hide horizontal scroll */
+    scrollbar-width: none; /* Firefox scrollbar hide */
+    flex-direction: column; /* Stack cards vertically */
+    padding: 20px;
+    margin-top: -100px; /* Align container properly below navbar/tab */
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculations */
+    flex: 1;
+}
+
+/* Section Title Styles */
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Courses Grid */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.course-card {
+    background-color: #eef4f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-card i {
+    font-size: 36px;
+    color: #0077cc;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+a.course-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Responsive Grid Layout */
+@media (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Filter Container */
+.filter-container {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Filter Section Titles */
+.filter-section {
+    margin-bottom: 30px;
+}
+
+.filter-title {
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+
+
+.filter-category {
+    margin-bottom: 10px; /* Adjust the space between filter sections */
+}
+
+
+/* Filter Grid */
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.filter-card {
+    background-color: #eef4f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.filter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.filter-card i {
+    font-size: 36px;
+    color: #0077cc;
+    margin-bottom: 10px;
+}
+
+.filter-card p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+/* Responsive Filter Grid */
+@media (max-width: 768px) {
+    .filter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* General Section Styles */
+.section {
+    margin: 20px 0;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    padding: 20px;
+}
+
+/* Grid Container Styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.grid-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px; /* Increased padding for more space inside the card */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: #333;
+}
+
+.grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-card i {
+    font-size: 32px;
+    color: #0077cc;
+    margin-bottom: 10px;
+}
+
+.grid-card p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive Design for Grid */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}

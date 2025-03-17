@@ -1,0 +1,232 @@
+/* Tab container styling */
+.tab-container {
+    background-color: white;
+    border-top-left-radius: 15px; /* Rounded top-left corner */
+    border-top-right-radius: 15px; /* Rounded top-right corner */
+    border-bottom-left-radius: 0; /* Sharp bottom corners */
+    border-bottom-right-radius: 0;
+    padding: 10px 20px; /* Add padding to the top and sides */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 100%; /* Adjust width based on content */
+    margin: 0 auto; /* Center align */
+    margin-top: -40px;
+}
+
+/* Tab styling */
+.tabs {
+    display: flex;
+    gap: 20px; /* Spacing between tabs */
+    justify-content: left;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: gray;
+}
+
+.tab {
+    cursor: pointer;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+/* Active tab */
+.tab.active {
+    font-weight: bold;
+    color: black;
+    position: relative;
+}
+
+/* Underline styling */
+.tab-container .underline {
+    height: 2px;
+    width: 60px; /* Matches the active tab width */
+    background-color: #007bff; /* Blue underline */
+    margin-top: 10px;
+    border-radius: 10px; /* Rounded underline edges */
+    align-self: flex-start;
+    transform: translateX(0); /* Adjust based on active tab */
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+/* Hover effect */
+.tab:hover {
+    color: black;
+}
+
+/* Post Card (Middle Section) */
+.post-card-container {
+    width: 850px;
+    flex: 1; /* Occupies the middle section dynamically */
+    height: calc(100vh - 140px); /* Full height minus navbar */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-top: 10px; /* Push content under navbar */
+    margin-top: -10px;
+    padding: px;
+    overflow-x: hidden; /* Hide horizontal scroll */
+    scrollbar-width: none; /* Firefox scrollbar hide */
+    -ms-overflow-style: none;  /* Internet Explorer scrollbar hide */
+    gap: -100px; /* Adjust gap between post cards */
+    flex-direction: column; /* Stack cards vertically */
+    
+}
+
+/* Hide the scroll bar for webkit browsers */
+.post-card-container::-webkit-scrollbar {
+    display: none;
+}
+
+.post-card {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    margin-bottom: -8px;
+}
+
+/* Hover Effect for Card */
+
+
+/* Left Side: Post Image */
+.post-image-wrapper {
+    width: 35%; /* Adjust image proportion */
+    overflow: hidden;
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Right Side: Post Details */
+.post-details {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Post Header: Profile Info */
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: -30px;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f0f0f0;
+}
+
+.post-author {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.post-timestamp {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Post Content */
+.post-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.post-content p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Post Footer */
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.like-button {
+    color: #000000;
+    font-size: 14px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.like-button:hover {
+    background-color: #007bff;
+    transform: translateY(-2px); /* Button bounce effect */
+}
+
+.about-the-course {
+    color: #000000;
+    font-size: 14px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: -10px;
+}
+
+.about-the-course:hover {
+    background-color: #8440cd;
+    transform: translateY(-2px); /* Button bounce effect 
+.like-icon {
+    font-size: 16px;
+    margin-bottom: px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .post-card {
+        flex-direction: column; /* Stack image and content */
+        gap: 15px;
+    }
+
+    .post-image-wrapper {
+        width: 100%;
+        height: 200px;
+    }
+
+    .post-details {
+        width: 100%;
+    }
+}
+}

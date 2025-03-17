@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to UniAds</title>
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <img src="{{ asset('images/logo.png') }}" alt="UniAds Logo" class="logo">
+        <div class="auth-buttons">
+            <a href="{{ route('login') }}" class="auth-button login-button">Login</a>
+            <a href="{{ route('register') }}" class="auth-button register-button">Register</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>Welcome to UniAds</h1>
+        <p>Your gateway to higher education in Sri Lanka. Find your ideal program, connect with top institutions, and start your educational journey with us.</p>
+        
+        <div class="services">
+            <div class="service">
+                <i class="icon fa fa-university"></i>
+                <h3>Institution Profiles</h3>
+                <p>Discover leading universities and their offerings at a glance.</p>
+            </div>
+            <div class="service">
+                <i class="icon fa fa-book"></i>
+                <h3>Program Listings</h3>
+                <p>Explore degree, diploma, and master’s programs from various institutions.</p>
+            </div>
+            <div class="service">
+                <i class="icon fa fa-filter"></i>
+                <h3>Search & Filter</h3>
+                <p>Find the perfect course by location, duration, or study format.</p>
+            </div>
+            <div class="service">
+                <i class="icon fa fa-comments"></i>
+                <h3>Connect & Chat</h3>
+                <p>Chat with institutions for direct feedback and personalized guidance.</p>
+            </div>
+        </div>
+
+        <p>Join UniAds today and take the next step toward your future!</p>
+    </main>
+</div>
+
+</body>
+</html>

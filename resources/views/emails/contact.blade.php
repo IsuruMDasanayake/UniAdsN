@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Message</title>
+</head>
+<body>
+    <h3>Contact Message for {{ $institute }}</h3>
+    <p><strong>From:</strong> {{ $name }} ({{ $email }})</p>
+    <p><strong>Subject:</strong> {{ $subject }}</p>
+    <p><strong>Message:</strong></p>
+    <p>{{ $messageContent }}</p>
+</body>
+</html>
