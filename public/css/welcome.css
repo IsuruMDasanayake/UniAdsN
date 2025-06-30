@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,5 +144,78 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+
+/* Mobile-first: auth buttons appear at bottom */
+.auth-buttons.mobile-move {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Media query for desktop view */
+@media (min-width: 769px) {
+    .container {
+        position: relative;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .auth-buttons.mobile-move {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        margin-top: 0;
+    }
+}
+
+/* Responsive layout support */
+@media (max-width: 768px) {
+    .welcome-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-content h1 {
+        font-size: 28px;
+    }
+
+    .main-content p {
+        font-size: 16px;
+    }
+
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        width: 90%;
+    }
+
+    .auth-button {
+        width: 100%;
+        text-align: center;
     }
 }

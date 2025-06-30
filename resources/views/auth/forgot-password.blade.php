@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #1877f2;
+            background: linear-gradient(to bottom right, #6A11CB, #2575FC);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,7 +18,7 @@
 
         .container {
             background-color: #fff;
-            padding: 30px;
+            padding: 40px;
             border-radius: 12px;
             width: 100%;
             max-width: 420px;
@@ -62,6 +62,7 @@
             border-radius: 8px;
             outline: none;
             background-color: #f7f9fc;
+            margin-left: -10px
         }
 
         input[type="email"]:focus,
@@ -101,6 +102,57 @@
         .link a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 768px) {
+    body {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 25px 10px;
+        width: 320px;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p.subtitle {
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="password"] {
+        font-size: 15px;
+        padding: 9.5px;
+        width: 95%;
+        margin-left: -1px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .link {
+        font-size: 13px;
+    }
+}
+
+        
     </style>
 </head>
 
@@ -131,7 +183,7 @@
         <form method="POST" action="{{ route('password.sendResetCode') }}">
             @csrf
             <div class="form-group">
-                <label for="email">:</label>
+                <label for="email"></label>
                 <input type="email" id="email" name="email" required placeholder="example@mail.com">
             </div>
             <button type="submit">Send Reset Code</button>

@@ -286,7 +286,7 @@ header {
 .profile-img {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
+    border-radius: 20%;
     object-fit: cover; /* Ensures the image fills the circle */
     margin-right: 10px;
 }
@@ -388,81 +388,105 @@ header {
     color: var(--blue); /* Highlight arrow on hover */
 }
 
-/* Media Queries for Responsiveness */
-
-/* Tablet Landscape */
-@media (max-width: 1024px) {
-    .header-container {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .logoBox img {
-        width: 50px;
-    }
-
-    .searchBox {
-        width: 30%;
-    }
-
-    .nav-icons {
-        gap: 15px;
-    }
-
-    .iconBox1 {
-        width: 20%;
-    }
-}
-
-/* Tablet Portrait */
+/* === Mobile Responsive Styles === */
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
-    }
+  header {
+    height: auto;
+    padding: 10px 0;
+    
+  }
 
-    .logoBox {
-        margin-bottom: 10px;
-    }
+  .header-container {
+    height: auto;
+    padding: 15px;
+    flex-direction: column;
+    border-radius: 15px;
+    
+  }
 
-    .searchBox {
-        width: 80%;
-        margin-top: 10px;
-    }
+  .header-wrapper {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    
+  }
 
-    .nav-icons {
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .logoBox {
+    width: auto;
+  }
 
-    .profile-dropdown {
-        margin-top: 10px;
-    }
-}
+  .logoBox span {
+    font-size: 20px;
+  }
 
-/* Mobile */
-@media (max-width: 480px) {
-    .header-container {
-        padding: 10px;
-    }
+  .searchBox {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
 
-    .logoBox img {
-        width: 40px;
-    }
+  .searchBox input {
+    padding: 10px 40px 10px 15px;
+    font-size: 14px;
+  }
 
-    .searchBox {
-        width: 90%;
-    }
+  .searchBox i {
+    top: 12px;
+    right: 15px;
+    font-size: 14px;
+  }
 
-    .nav-icons {
-        gap: 10px;
-    }
+  .iconBox1 {
+    width: 100%;
+    justify-content: space-around;
+    padding: 0;
+    border: none;
+    margin-top: 10px;
+  }
 
-    .iconBox1 {
-        display: none; /* Hide icons on smaller screens */
-    }
+  .iconBox1 i {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .nav-icons {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 0;
+  }
+
+  .nav-icons a {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .profile-dropdown {
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .profile-btn {
+    font-size: 14px;
+  }
+
+  .profile-img {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+  }
+
+  .username {
+    font-size: 14px;
+    margin-right: 5px;
+  }
+
+  #notification-bell button i,
+  #message-icon i {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
 
 
@@ -472,7 +496,7 @@ header {
 /*programs style*/
 /* Card container styling */
 .left-side-card {
-    width: 550px;
+    width: 265px;
     background: var(--white);
     padding: 30px;
     border-radius: 10px;
@@ -572,6 +596,56 @@ header {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
     transform: translateY(-3px); /* Lift effect */
 }
+
+
+.left-side-wrapper {
+    position: relative;
+}
+
+/* Toggle arrow button */
+.toggle-arrow {
+    position: fixed;
+    top: 230px; /* Adjust based on desired vertical spot */
+    left: 0;
+    background: white;
+    color: var(--blue);
+    padding: 8px 12px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    z-index: 10000;
+    font-size: 20px;
+    display: none; /* show in media query */
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .left-side-card {
+        position: fixed;
+        top: 140px;
+        left: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100vh - 140px);
+        margin-top: 0;
+        z-index: 9999;
+        transition: left 0.4s ease;
+    }
+
+    .left-side-card.show {
+        left: 0;
+    }
+
+    .toggle-arrow {
+        display: block;
+    }
+
+    .toggle-arrow.active i {
+        transform: rotate(180deg);
+    }
+}
+
+
 
 
 /* Message Icon Styling */

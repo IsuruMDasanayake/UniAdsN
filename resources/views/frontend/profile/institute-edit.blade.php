@@ -2,12 +2,22 @@
     
         <!-- Main Content -->
         <div class="main-content">
+            <!-- Left Toggle Arrow -->
+            <div class="left-toggle-arrow" onclick="toggleLeftSidebar()">
+               <i class="material-icons">chevron_right</i>
+            </div>
+
             <!-- Left Section: Institute Gallery -->
             @include('frontend.profile.institute-gallery')
                 
             <!-- Center Section: Posts -->
             @include('frontend.profile.profile-posts')
-    
+            
+            <!-- Right Toggle Arrow -->
+            <div class="right-toggle-arrow" onclick="toggleRightSidebar()">
+               <i class="material-icons">chevron_left</i>
+            </div>
+
             <!-- Right Section: Events -->
             @include('frontend.profile.profile-events')
         </div>
@@ -371,6 +381,25 @@ document.getElementById('event_image').addEventListener('change', function(event
     };
     reader.readAsDataURL(event.target.files[0]);
 });
+
+
+function toggleLeftSidebar() {
+  const leftSidebar = document.querySelector('.left-section');
+  const icon = document.querySelector('.left-toggle-arrow i');
+
+  leftSidebar.classList.toggle('active');
+  icon.classList.toggle('active');
+}
+
+
+function toggleRightSidebar() {
+  const rightSidebar = document.querySelector('.right-section');
+  const icon = document.querySelector('.right-toggle-arrow i');
+
+  rightSidebar.classList.toggle('active');
+  icon.classList.toggle('active');
+}
+
 
 </script>
  

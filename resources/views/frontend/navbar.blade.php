@@ -180,6 +180,37 @@ function sendMessage() {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("header");
+    let lastScrollTop = 0;
+    let isMobile = window.innerWidth <= 768;
+
+    window.addEventListener("resize", () => {
+        isMobile = window.innerWidth <= 768;
+    });
+
+    window.addEventListener("scroll", function () {
+        if (!isMobile) {
+            header.style.top = "0px";
+            return;
+        }
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down: hide half
+            header.style.top = "-70px"; // move up half of 140px
+        } else {
+            // Scrolling up: show it again
+            header.style.top = "0px";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+});
+
+
+
 </script>
 
 

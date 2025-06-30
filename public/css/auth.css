@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,4 +169,51 @@ p {
     background-color: #6A11CB;
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 30px;
+        min-height: 112vh;
+
+        align-items: flex-start;
+    }
+
+    .auth-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 15px;
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p,
+    .redirect,
+    .institute-text {
+        font-size: 14px;
+    }
+
+    .auth-button,
+    .institute-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .institute-button {
+        padding: 12px 20px;
+    }
+
+    .forgot-password-link {
+        font-size: 13px;
+    }
+
+    .form-logo {
+        width: 80px;
+        margin-bottom: 15px;
+    }
 }

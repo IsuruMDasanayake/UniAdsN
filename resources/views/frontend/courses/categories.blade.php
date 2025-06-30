@@ -80,7 +80,7 @@
 .profile-picture {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 20%;
     border: 2px solid #ddd;
     object-fit: cover;
 }
@@ -156,7 +156,7 @@
     .post-image-wrapper {
         flex: none;
         width: 100%;
-        height: 200px;
+        height: 100%;
     }
 
     .post-title {
@@ -165,6 +165,7 @@
 
     .programme-link {
         font-size: 0.9rem;
+        margin-left: 1px; /* Adjust margin for smaller screens */
     }
 }
 
@@ -280,6 +281,70 @@
     word-wrap: break-word;
 }
 
+@media (max-width: 768px) {
+  .modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 90vh;
+    border-radius: 10px;
+    max-width: 95%;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .modal-left {
+    height: 200px;
+    flex: none;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .modal-image {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .modal-right {
+    flex: 1;
+    padding: 15px;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+
+  .modal-close {
+    font-size:2rem;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #ffffff;
+    background-color: black
+  }
+
+  .modal-description-container {
+    overflow-y: auto;
+    padding-right: 5px;
+    max-height: 60vh;
+  }
+
+  .modal-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
 
 
 
@@ -292,7 +357,7 @@
     @include('frontend.navbar')
 
     <div class="container">
-        <h1 class="page-title">Posts for {{ $filterType }}: {{ $filterValue }}</h1>
+        <h1 class="page-title"> {{ $filterValue }}</h1>
         @forelse ($posts as $post)
             <div class="post-card">
                 <div class="post-image-wrapper">
@@ -306,15 +371,16 @@
                     </div>
                     <h2 class="post-title">{{ $post->title }}</h2>
                     <h3 class="post-description">{{ $post->small_description }}</h3>
-                    <p class="post-meta">{{ $post->attendance_type }} / {{ $post->duration }} / {{ $post->course_type }}</p>
+                    <p class="post-meta">{{ $post->course_type }} / {{ $post->duration }} / {{ $post->attendance_type }}</p>
                     <a href="javascript:void(0)" 
-   class="programme-link" 
-   data-title="{{ $post->title }}" 
-   data-description="{{ nl2br(e($post->description)) }}" 
-   data-image="{{ asset('storage/' . $post->image) }}" 
-   onclick="openModalFromLink(this)">
-   View Programme Information
-</a>
+                                class="programme-link" 
+                                data-title="{{ $post->title }}" 
+                                data-description="{{ nl2br(e($post->description)) }}" 
+                                data-image="{{ asset('storage/' . $post->image) }}" 
+                                onclick="openModalFromLink(this)">
+                                 
+                                <br>View Programme Information
+                    </a>
 
                     
                 </div>

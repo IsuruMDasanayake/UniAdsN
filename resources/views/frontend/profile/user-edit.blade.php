@@ -102,17 +102,20 @@
         
         //pop up success
         @if(session('success'))
-            window.onload = function() {
-                // Show the success popup
-                var successPopup = document.getElementById('successPopup');
-                successPopup.style.display = 'flex';
+    window.onload = function() {
+        var successPopup = document.getElementById('successPopup');
+        successPopup.style.display = 'flex';
 
-                // Hide the popup after 3 seconds
-                setTimeout(function() {
-                    successPopup.style.display = 'none';
-                }, 1000); // Hide after 1 seconds
-            };
-        @endif
+        setTimeout(function() {
+            successPopup.style.display = 'none';
+
+            setTimeout(function() {
+                window.history.go(-2); // Go back two pages
+            }, 200);
+        }, 2000);
+    };
+@endif
+
 
         // Image preview function
     document.getElementById('profile-picture').addEventListener('change', function (event) {

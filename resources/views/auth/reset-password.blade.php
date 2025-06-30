@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif; /* Updated font */
-            background-color: #1877f2; /* Updated background color */
+            background: linear-gradient(to bottom right, #6A11CB, #2575FC); /* Updated background color */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,7 +18,7 @@
 
         .container {
             background-color: #fff;
-            padding: 30px;
+            padding: 40px;
             border-radius: 12px;
             width: 100%;
             max-width: 420px;
@@ -43,6 +43,7 @@
         .form-group {
             margin-bottom: 20px;
             text-align: left;
+            gap: 50px; /* Added gap for better spacing */
         }
 
         label {
@@ -61,6 +62,7 @@
             border-radius: 8px;
             outline: none;
             background-color: #f7f9fc;
+            width: 400px;
         }
 
         input[type="text"]:focus,
@@ -68,6 +70,16 @@
             border-color: #1877f2;
             background-color: #ffffff;
         }
+
+        label + input {
+    margin-top: 1px; /* Optional: Space between label and its own input */
+}
+
+.form-group:nth-child(2) label,
+.form-group:nth-child(3) label {
+    margin-top: 10px;
+    display: inline-block;
+}
 
         button {
             width: 100%;
@@ -128,6 +140,73 @@
         .link a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 768px) {
+    body {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 95%;
+        padding: 25px 10px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p.subtitle {
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 15px;
+        padding: 10px;
+        width: 300px
+    }
+
+    label + input {
+    margin-top: 1px; /* Optional: Space between label and its own input */
+}
+
+.form-group:nth-child(2) label,
+.form-group:nth-child(3) label {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+    
+    button {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .link {
+        font-size: 13px;
+    }
+
+    .alert {
+        font-size: 14px;
+    }
+
+    .error-list li {
+        font-size: 13px;
+    }
+}
+
     </style>
 </head>
 

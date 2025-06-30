@@ -6,17 +6,12 @@
     <title>Welcome to UniAds</title>
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
-<body>
+<body class="welcome-body">
 
 <div class="container">
     <header class="header">
         <img src="{{ asset('images/logo.png') }}" alt="UniAds Logo" class="logo">
-        <div class="auth-buttons">
-            <a href="{{ route('login') }}" class="auth-button login-button">Login</a>
-            <a href="{{ route('register') }}" class="auth-button register-button">Register</a>
-        </div>
     </header>
 
     <main class="main-content">
@@ -48,6 +43,12 @@
 
         <p>Join UniAds today and take the next step toward your future!</p>
     </main>
+
+    <!-- Auth Buttons now placed at the bottom -->
+    <div class="auth-buttons mobile-move">
+        <a href="{{ route('login') }}" class="auth-button login-button">Login</a>
+        <a href="{{ route('register') }}" class="auth-button register-button">Register</a>
+    </div>
 </div>
 
 </body>

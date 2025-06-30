@@ -7,142 +7,178 @@
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <style>
         /* General reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: linear-gradient(to bottom right, #6A11CB, #2575FC);
-        }
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #6A11CB, #2575FC);
+    padding: 20px;
+}
 
-        /* Form wrapper */
-        .form-wrapper {
-            width: 90%;
-            max-width: 900px;
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
-            display: flex;
-            gap: 20px;
-            animation: fadeIn 1s ease-in-out;
-            min-height: 300px;
-        }
+/* Wrapper */
+.form-wrapper {
+    width: 100%;
+    max-width: 950px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
 
-        /* Left Section */
-        .form-left {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            padding-right: 20px;
-        }
+/* Left Panel */
+.form-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-right: 20px;
+}
 
-        .form-left h2 {
-            font-size: 28px;
-            color: #2575FC;
-            margin-bottom: 10px;
-        }
+.form-left h2 {
+    font-size: 28px;
+    color: #2575FC;
+    margin-bottom: 10px;
+}
 
-        .form-left p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-        }
+.form-left p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
 
-        .form-left ul {
-            list-style: none;
-            padding: 0;
-            color: #333;
-            font-size: 14px;
-        }
+.form-left ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    color: #333;
+}
 
-        .form-left ul li {
-            margin-bottom: 10px;
-        }
+.form-left ul li {
+    margin-bottom: 10px;
+}
 
-        .form-left ul li strong {
-            color: #2575FC;
-        }
+.form-left ul li strong {
+    color: #2575FC;
+}
 
-        /* Right Section */
-        .form-right {
-            flex: 2;
-        }
+/* Right Form Area */
+.form-right {
+    flex: 2;
+}
 
-        .form-group {
-            width: 100%;
-            margin-bottom: 15px;
-        }
+/* Input Group */
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
 
-        .form-group label {
-            font-size: 14px;
-            color: #333;
-        }
+.form-group label {
+    font-size: 14px;
+    color: #333;
+}
 
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 5px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
 
-        .form-group input:focus {
-            border-color: #2575FC;
-        }
+.form-group input:focus {
+    border-color: #2575FC;
+}
 
-        /* Button Styling */
-        .auth-button {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            color: white;
-            background-color: #2575FC;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-top: 10px;
-        }
+/* Submit Button */
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #2575FC;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
 
-        .auth-button:hover {
-            background-color: #6A11CB;
-            transform: scale(1.05);
-        }
+.auth-button:hover {
+    background-color: #6A11CB;
+    transform: scale(1.05);
+}
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        @media screen and (max-width: 768px) {
-            .form-wrapper {
-                flex-direction: column;
-            }
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 30px 15px;
+        height: auto; /* More padding to avoid clipped form */
+    }
 
-            .form-left {
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-        }
+    .form-wrapper {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 20px;
+        height: 1080px;         /* ✅ Allow form height to expand naturally */
+        background-color: white;  /* ✅ Make sure white stretches fully */
+    }
+
+    .form-left {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .form-left h2 {
+        font-size: 24px;
+    }
+
+    .form-left p,
+    .form-left ul {
+        font-size: 14px;
+    }
+
+    .auth-button {
+        font-size: 15px;
+    }
+
+    .form-group input {
+        font-size: 15px;
+    }
+}
+
     </style>
 </head>
 <body>

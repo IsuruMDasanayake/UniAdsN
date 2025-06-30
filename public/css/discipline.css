@@ -66,18 +66,7 @@ a.course-card {
     display: block;
 }
 
-/* Responsive Grid Layout */
-@media (max-width: 768px) {
-    .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (max-width: 480px) {
-    .courses-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* Filter Container */
 .filter-container {
@@ -144,18 +133,7 @@ a.course-card {
     margin: 0;
 }
 
-/* Responsive Filter Grid */
-@media (max-width: 768px) {
-    .filter-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (max-width: 480px) {
-    .filter-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* General Section Styles */
 .section {
@@ -208,15 +186,3 @@ a.course-card {
     font-weight: 500;
 }
 
-/* Responsive Design for Grid */
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-}
