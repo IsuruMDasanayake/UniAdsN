@@ -18,7 +18,7 @@
                 <a href="{{ url('/feed') }}"><i class="fa fa-home"></i></a>
                 <a href="{{ url('/institutions') }}"><i class="fa fa-building"></i></a>
                 <a href="{{ url('/courses') }}"><i class="fa fa-graduation-cap"></i></a>
-                <div id="notification-bell">
+                {{-- <div id="notification-bell">
                     <button>
                         <i class="fa fa-bell"></i>
                         <span id="notification-count">0</span>
@@ -26,7 +26,7 @@
                     <div id="notifications-dropdown">
                         <ul id="notifications-list"></ul>
                     </div>
-                </div>
+                </div> --}}
                 <!-- New Message Icon -->
                 <div id="message-icon">
                     <button onclick="openChatModal()">

@@ -176,7 +176,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #e8f0fe;
     z-index: 999;
 }
 
@@ -189,7 +189,7 @@
     background-color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    max-width: 100%;
+    max-width: 1100px;
     width: 900px;
     z-index: 1000;
     overflow: hidden;

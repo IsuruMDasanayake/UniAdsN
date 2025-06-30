@@ -93,7 +93,11 @@
 }
 
 /* Hover Effect for Card */
-
+.post-card:hover {
+  
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
 
 /* Left Side: Post Image */
 .post-image-wrapper {
@@ -113,7 +117,7 @@
 }
 
 .post-card:hover .post-image {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1); /* Slight zoom on hover */
 }
 
 /* Right Side: Post Details */

@@ -1,0 +1,13 @@
+user view:
+	Search bar
+	notifications
+	messenger
+	left side degree section
+	middle posts Recent, popular, most view section
+			institute name clickable
+			see more about course button 
+			like
+			loading with srolling
+			short description length
+	upcoming events see all button, interested and decline buttons
+			loading with scrolling

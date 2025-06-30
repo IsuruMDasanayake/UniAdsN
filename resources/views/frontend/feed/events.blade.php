@@ -1,7 +1,7 @@
 <div class="upcoming-events-card">
     <div class="card-header">
         <h2>Upcoming Events</h2>
-        <a href="#">See all</a>
+        {{-- <a href="#">See all</a> --}}
     </div>
     <div class="event-content">
         <!-- Each event will be a separate card -->
@@ -29,10 +29,10 @@
             <p class="event-location">{{ $event->sub_location }}</p>
 
             <!-- Event Actions -->
-            <div class="event-actions">
+            {{-- <div class="event-actions">
                 <button class="btn-interested">Interested</button>
                 <button class="btn-decline">Decline</button>
-            </div>
+            </div> --}}
         </div>
     </div>
     @endforeach

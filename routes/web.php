@@ -78,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 //PostShow
-Route::get('/posts', [PostController::class, 'index'])->name('frontend.feed.feed');
+//Route::get('/posts', [PostController::class, 'index'])->name('frontend.feed.feed');
 
 //Institution profile shows to normal user
 Route::get('/institutions/{id}/profile', [InstituteController::class, 'showProfile'])->name('frontend.profile.institute-edit');
@@ -102,12 +102,28 @@ Route::get('/courses', [CategoryController::class, 'showCategories'])->name('fro
 
 
 // Routes for posts
+// Route::post('/profile/{id}', [PostController::class, 'store'])->name('posts.store');
+// Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+// Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+// Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
+// Route::post('/posts/{postId}/toggle-like', [PostController::class, 'toggleLike'])->name('posts.toggleLike');
+Route::get('/posts/filter/{filterType}/{filterValue}', [PostController::class, 'filter'])->name('posts.filter');
+
+
+
+// Post CRUD
 Route::post('/profile/{id}', [PostController::class, 'store'])->name('posts.store');
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
+
+// Post Like Toggle
 Route::post('/posts/{postId}/toggle-like', [PostController::class, 'toggleLike'])->name('posts.toggleLike');
-Route::get('/posts/filter/{filterType}/{filterValue}', [PostController::class, 'filter'])->name('posts.filter');
+
+// Fetch Posts for Filtering
+Route::get('/posts/feedfilter/{filterType}', [PostController::class, 'feedfilter'])->name('posts.feedfilter');
+
+
 
 
 // Routes for events

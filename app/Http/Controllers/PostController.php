@@ -9,6 +9,7 @@ use App\Models\Institute;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class PostController extends Controller
 {
     
@@ -83,13 +84,10 @@ public function showProfile($id)
 
 public function showFeed()
 {
-    $posts = Post::with('institute')->latest()->get();
-    foreach ($posts as $post) {
-        \Log::info($post->institute); // Log institute data for debugging
-    }
-
-    return view('frontend.feed.feed', compact('posts'));
+    $recentPosts = Post::with('institute')->latest()->get();
+    return view('frontend.feed.feed', compact('recentPosts'));
 }
+
 
 public function showPostsProfile()
 {
@@ -229,6 +227,43 @@ public function filter($filterType, $filterValue)
 }
 
 
+
+
+ // Recent Posts (Latest First)
+ public function getRecentPosts()
+ {
+     $posts = Post::with('institute')->latest()->get();
+     return response()->json($posts);
+ }
+
+ // Popular Posts (Most Liked First)
+ public function getPopularPosts()
+ {
+     $posts = Post::with('institute')->orderBy('likes_count', 'desc')->get();
+     return response()->json($posts);
+ }
+
+ // Most Viewed Posts (Most Viewed First)
+ public function getMostViewedPosts()
+ {
+     $posts = Post::with('institute')->orderBy('views_count', 'desc')->get();
+     return response()->json($posts);
+ }
+
+ // General Filter Function
+ public function feedfilter($filterType)
+ {
+     switch ($filterType) {
+         case 'recent':
+             return $this->getRecentPosts();
+         case 'popular':
+             return $this->getPopularPosts();
+         case 'most-viewed':
+             return $this->getMostViewedPosts();
+         default:
+             return response()->json(['error' => 'Invalid filter type'], 400);
+     }
+ }
 
 
 }

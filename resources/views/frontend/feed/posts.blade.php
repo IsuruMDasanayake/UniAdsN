@@ -1,10 +1,10 @@
 <div class="tab-container">
-    <div class="tabs">
+    {{-- <div class="tabs">
         <span class="tab active">RECENT</span>
         <span class="tab">POPULAR</span>
         <span class="tab">MOST VIEW</span>
     </div>
-    <div class="underline"></div>
+    <div class="underline"></div> --}}
 </div>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -39,7 +39,7 @@
                 <span class="like-icon">👍</span> 
                 {{ session()->get("liked_post_{$post->id}", false) ? 'Liked' : 'Like' }}
             </button>
-            {{-- <button class="about-the-course">See More About This Course</button> --}}
+            <button class="about-the-course">See More About This Course</button>
             <div class="post-timestamp">{{ $post->likes_count ?? 0 }} Likes</div>
         </div>
             </div>
