@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
+
+    public function index()
+    {
+        $events = Event::where('event_date', '>=', now())
+                        ->orderBy('event_date', 'asc')
+                        ->get();
+
+        return view('frontend.events.upcoming', compact('events'));
+    }
+
+
+
     public function create($id)
 {
     // Fetch the institute by ID
@@ -91,6 +103,7 @@ class EventController extends Controller
     // Pass both posts and events to the view
     return view('frontend.feed.feed', compact('events', 'posts'));
 }
+
 
 
 

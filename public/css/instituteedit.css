@@ -1,11 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f6fa;
-    margin: 0;
-    padding: 0;    
+       
 }
-
-
 
 .profile-container {
     width: 70%;
@@ -381,6 +378,7 @@ body {
     margin-bottom: 50px;
     border-bottom: 1px solid #f1f1f1;
     padding-bottom: 10px;
+    border-radius: 20%;
 }
 
 .post-header {
@@ -785,7 +783,60 @@ body {
         }
     }
 
-    
+    @media (max-width: 576px) {
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+    max-height: 85vh;
+    padding: 12px;
+  }
+
+  .modal-body {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .modal-left,
+  .modal-right {
+    width: 100%;
+  }
+
+  .photo-preview img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  #profile_photo,
+  #cover_photo {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .btn-primary,
+  .btn-cancel {
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+  .close {
+    top: 5px;
+    right: 10px;
+    font-size: 22px;
+  }
+}
+
+
+
+
+
 
 /* Modal Background */
 .modal {
@@ -870,6 +921,94 @@ body {
     outline: none;
 }
 
+.btn-primary {
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+        
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+
+    .btn-cancel {
+        background: #dc3545;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+
+    .btn-cancel:hover {
+        background: #a71d2a;
+    }
+
+
+@media (max-width: 576px) {
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .close-btn {
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .btn-primary,
+.btn-cancel {
+  font-size: 15px;
+  padding: 10px;
+  width: 100%;
+  display: block;
+}
+
+.btn-cancel {
+  margin-top: 10px;
+}
+
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+}
+
+
+
+
+
+
 /* Delete Modal Styles */
 .delete-modal {
     display: none;
@@ -943,6 +1082,32 @@ body {
     background-color: #616161;
 }
 
+@media (max-width: 576px) {
+  .delete-modal-content {
+    width: 90%;
+    margin: 30% auto;
+    padding: 30px 20px;
+    height: 200px;
+  }
+
+  .delete-modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .delete-btn,
+  .cancel-btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .delete-close-btn {
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+  }
+}
 
 
 

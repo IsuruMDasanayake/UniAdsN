@@ -9,15 +9,23 @@
                 <span>UniAds</span>
             </div>
 
-            <div class="searchBox">
-                <input type="text" placeholder="Search">
-                <i class="fa fa-search"></i>
-            </div>
+            <form action="{{ route('search.results') }}" method="GET">
+    <div class="searchBox">
+        <input type="text" name="query" placeholder="Find your dream program..." required>
+        <button type="submit" class="search-btn" aria-label="Search">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</form>
+
+
 
             <div class="iconBox1">
                 <a href="{{ url('/feed') }}"><i class="fa fa-home"></i></a>
                 <a href="{{ url('/institutions') }}"><i class="fa fa-building"></i></a>
                 <a href="{{ url('/courses') }}"><i class="fa fa-graduation-cap"></i></a>
+                <a href="{{ url('/events') }}"><i class="fa fa-calendar"></i></a>
+
                 {{-- <div id="notification-bell">
                     <button>
                         <i class="fa fa-bell"></i>
@@ -28,13 +36,7 @@
                     </div>
                 </div> --}}
                 <!-- New Message Icon -->
-                <div id="message-icon">
-                    <button onclick="openChatModal()">
-
-                    <i class="fa fa-comments"></i>
-                </button>
                 
-                </div>
             </div>
             
 

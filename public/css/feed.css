@@ -119,28 +119,43 @@ header {
 
 /* Search Box Styling */
 .searchBox {
-    width: 30%;
+    width: 400px; /* increased width */
     position: relative;
-    margin-left: 20px; /* Moves the search box to the right */
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* optional: move to the right */
 }
 
-.searchBox input {
-    padding: 15px 45px 15px 15px;
-    border-radius: 50px;
+.searchBox input[type="text"] {
     width: 100%;
+    padding: 15px 45px 15px 15px; /* space for icon on the right */
+    font-size: 14px;
+    border-radius: 50px;
     background: var(--foreground);
     border: none;
     box-shadow: 0 2px 5px 0 var(--shadow);
     color: var(--black);
+    outline: none;
 }
 
-.searchBox i {
+.searchBox .search-btn {
     position: absolute;
-    right: 20px;
-    top: 19px;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
     color: var(--black);
+    font-size: 16px;
     cursor: pointer;
+    padding: 0;
 }
+
+.searchBox .search-btn:focus {
+    outline: none;
+}
+
+
 
 /* General icon styles for both iconBox1 and iconBox2 */
 .iconBox1 i,
@@ -397,7 +412,7 @@ header {
   }
 
   .header-container {
-    height: auto;
+    height: 170px;
     padding: 15px;
     flex-direction: column;
     border-radius: 15px;
@@ -420,21 +435,20 @@ header {
   }
 
   .searchBox {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10px;
-  }
+        width: 160%;           /* Full width with padding */
+        margin: 5px auto;
+        margin-left: 18px;    /* Centered on small screens */
+    }
 
-  .searchBox input {
-    padding: 10px 40px 10px 15px;
-    font-size: 14px;
-  }
+    .searchBox input[type="text"] {
+        font-size: 13px;
+        padding: 12px 40px 12px 15px;  /* Slightly smaller padding */
+    }
 
-  .searchBox i {
-    top: 12px;
-    right: 15px;
-    font-size: 14px;
-  }
+    .searchBox .search-btn {
+        right: 12px;
+        font-size: 14px;
+    }
 
   .iconBox1 {
     width: 100%;
@@ -461,25 +475,53 @@ header {
     padding: 8px;
   }
 
+  /* Move profile dropdown container to top right */
   .profile-dropdown {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: auto;
     flex-direction: row;
     justify-content: flex-end;
-    width: 100%;
+    z-index: 1100;
   }
 
-  .profile-btn {
-    font-size: 14px;
+  .header-wrapper {
+    position: relative;
+  }
+
+  
+
+  /* Reverse order: username first, then profile image */
+  .username {
+    order: 1;
+    margin-right: 0;
   }
 
   .profile-img {
-    width: 25px;
-    height: 25px;
-    margin-right: 8px;
+    order: 2;
+    width: 30px;
+    height: 30px;
+    border-radius: 20%; /* keep your shape */
+    margin-left: 8px; /* space between name and photo */
   }
 
-  .username {
+  .profile-btn .username {
+    display: none;
+  }
+  .profile-btn {
+    order: 3;
     font-size: 14px;
-    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* space between name and photo */
+  }
+  /* The dropdown arrow is added by ::after on .profile-btn so stays on right */
+  
+  /* Dropdown content positioning */
+  .dropdown-content {
+    top: 35px;
+    right: 0;
   }
 
   #notification-bell button i,
@@ -619,7 +661,7 @@ header {
 
 
 /* Mobile adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .left-side-card {
         position: fixed;
         top: 140px;

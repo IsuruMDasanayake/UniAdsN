@@ -16,7 +16,7 @@
                     </p>
                 </div>
                 <div class="card-footer">    
-                    <a href="{{ route('frontend.profile.institute-edit', ['id' => $institute->id]) }}" class="view-profile-btn">See Profile</a>
+                    <a href="{{ route('frontend.profile.institute-edit', ['id' => $institute->id]) }}" class="view-profile-btn">See Institute Profile</a>
                 </div>
             </div>
         @empty

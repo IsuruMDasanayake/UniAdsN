@@ -10,6 +10,7 @@ use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\LengthAwarePaginator;
 class PostController extends Controller
 {
     
@@ -84,9 +85,25 @@ public function showProfile($id)
 
 public function showFeed()
 {
-    $recentPosts = Post::with('institute')->latest()->get();
-    return view('frontend.feed.feed', compact('recentPosts'));
+    $posts = Post::with('institute')->latest()->paginate(3); // Loads first 6 posts
+    return view('frontend.feed.feed', compact('posts'));
 }
+
+public function loadMore(Request $request)
+{
+    $page = $request->input('page', 1);
+
+    $posts = Post::with('institute')
+        ->orderBy('created_at', 'desc')
+        ->paginate(3, ['*'], 'page', $page);
+
+    return response()->json([
+        'html' => view('frontend.feed.post_partial', compact('posts'))->render(),
+        'next_page' => $posts->currentPage() + 1,
+        'has_more' => $posts->hasMorePages(),
+    ]);
+}
+
 
 
 public function showPostsProfile()
@@ -214,17 +231,20 @@ public function filter($filterType, $filterValue)
         'Duration' => 'duration',
         'Course Format' => 'course_format',
         'Attendance Type' => 'attendance_type',
-
     ];
 
     if (array_key_exists($filterType, $filterMap)) {
         $query->where($filterMap[$filterType], $filterValue);
     }
 
-    $posts = $query->get();
+    // Sort by newest first
+    $posts = $query->with('institute')
+                   ->orderBy('created_at', 'desc')
+                   ->get();
 
     return view('frontend.courses.categories', compact('posts', 'filterType', 'filterValue'));
 }
+
 
 
 
@@ -266,6 +286,22 @@ public function filter($filterType, $filterValue)
  }
 
 
+
+
+
+public function loadMorePosts(Request $request, $id)
+{
+    $page = $request->input('page', 1);
+    $institute = Institute::findOrFail($id);
+    $posts = $institute->posts()->latest()->paginate(3, ['*'], 'page', $page);
+
+    if ($request->ajax()) {
+        return view('frontend.profile.partials.institute-posts', compact('posts'))->render();
+    }
+
+    return abort(404);
 }
 
 
+
+}

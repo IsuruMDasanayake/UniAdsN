@@ -186,3 +186,74 @@ a.course-card {
     font-weight: 500;
 }
 
+/* Responsive: Mobile view */
+@media (max-width: 768px) {
+
+  .courses-container {
+    padding: 10px;
+    margin-top: -80px;
+    height: auto;
+  }
+
+  .courses-grid,
+  .filter-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    gap: 15px;
+  }
+
+  .course-card,
+  .filter-card {
+    padding: 12px;
+  }
+
+  .course-card i,
+  .filter-card i {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .course-card p,
+  .filter-card p {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    padding: 10px;
+  }
+
+  .filter-title {
+    font-size: 18px;
+    padding-left: 5px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    gap: 15px;
+  }
+
+  .grid-card {
+    padding: 14px;
+  }
+
+  .grid-card i {
+    font-size: 26px;
+  }
+
+  .grid-card p {
+    font-size: 13px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .courses-grid,
+  .filter-grid,
+  .grid-container {
+    grid-template-columns:repeat(2, 1fr); /* Stack items in one column */
+  }
+
+  .courses-container {
+    margin-top: -60px;
+  }
+}

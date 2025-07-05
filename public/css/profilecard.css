@@ -12,13 +12,14 @@
     overflow-x: hidden; /* Hide horizontal scroll */
     scrollbar-width: none; /* Firefox scrollbar hide */
     flex-direction: column; /* Stack cards vertically */
+    gap: 0px; /* Add gap between cards */
 }
 
 /* Grid Layout for Institution Boxes */
 .institutions-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 20px;
     padding: 10px 0;
     justify-content: center;
 }
@@ -95,11 +96,11 @@
 .view-profile-btn {
     margin-top: auto; /* Push button to the bottom */
     display: inline-block;
-    padding: 10px 80px;
+    padding: 8px 30px;
     background: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 10px;
     font-size: 14px;
     white-space: nowrap;
     transition: background 0.3s ease-in-out, transform 0.2s;
@@ -119,7 +120,7 @@
 @media (max-width: 768px) {
   .institutions-container {
     padding: 10px 15px;
-    margin-top: -30px;
+    margin-top: -35px;
     height: auto;
     overflow-y: auto;
   }
@@ -170,11 +171,11 @@
   }
 
   .view-profile-btn {
-    padding: 10px 20px;
+    padding: 8px 20px;
     width: 100%;
     font-size: 14px;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   .card-footer {

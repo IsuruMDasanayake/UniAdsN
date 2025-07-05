@@ -674,6 +674,110 @@ p {
     transform: scale(0.95);
 }
 
+@media (max-width: 768px) {
+  /* Modal Content - smaller padding and full width */
+  .modal-content,
+  .delete-modal-content {
+    width: 90%;
+    max-width: 95%;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .modal-header,
+  .delete-modal-header {
+    font-size: 18px;
+    
+  }
+
+  .modal-close,
+  .delete-modal-close {
+    font-size: 20px;
+    top: 8px;
+    right: 10px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  textarea,
+  input[type="file"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Image Preview Adjustments */
+  .image-preview-container {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .image-preview-container img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Buttons */
+  .submit-btn,
+  .reset-btn,
+  .confirm-btn,
+  .open-modal-btn,
+  .delete-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+    width: 100%; /* Full width on small screens */
+    margin-bottom: 10px;
+  }
+
+  /* About Section */
+  .about-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    
+  }
+
+  .about-container h1 {
+    display: none;
+  }
+  
+  .modal-content textarea {
+    width: 100%;
+    height: 120px;
+    font-size: 14px;
+  }
+
+  /* Chancellor / VC Intro Layout */
+  .chancellor-intro,
+  .vice-chancellor-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .chancellor-photo,
+  .vice-chancellor-photo {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .chancellor-description,
+  .vice-chancellor-description {
+    margin-top: 0;
+  }
+
+  /* Gallery images */
+  .gallery img {
+    width: 100%;
+    height: auto;
+  }
+
+  .campus-overview .gallery img {
+    width: 100%;
+  }
+}
 
 
 

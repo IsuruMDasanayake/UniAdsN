@@ -1,7 +1,7 @@
 <div class="upcoming-events-card">
     <div class="card-header">
         <h2>Upcoming Events</h2>
-        {{-- <a href="#">See all</a> --}}
+        <a href="/events">See all</a>
     </div>
     <div class="event-content">
         <!-- Each event will be a separate card -->

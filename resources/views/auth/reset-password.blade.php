@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <style>
         body {
             font-family: 'Poppins', sans-serif; /* Updated font */

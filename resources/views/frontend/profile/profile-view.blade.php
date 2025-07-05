@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Profile</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     {{-- <link rel="stylesheet" href="{{ asset('css/addpost.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/instituteedit.css') }}">
     <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
     
-
     <script src="{{ asset('js/navbar.js') }}"></script>
     
 </head>
@@ -23,13 +22,15 @@
     
     <div class="profile-container">
         <!-- Cover Photo -->
-        <img src="{{ asset('storage/' . $institute->cover_photo) }}" alt="Cover" class="photo-preview">
+        <img src="{{ $institute->cover_photo ? asset('storage/' . $institute->cover_photo) : asset('images/cover.png') }}" 
+        alt="Cover" 
+        class="photo-preview cover-photo">
     
         <!-- Profile Section -->
         <div class="profile-section">
             <!-- Profile Picture -->
             <div class="profile-picture">
-                <img src="{{ $institute->profile_photo ? asset('storage/' . $institute->profile_photo) : asset('images/default-logo.png') }}" alt="Profile Picture">
+                <img src="{{ $institute->profile_photo ? asset('storage/' . $institute->profile_photo) : asset('images/profile.png') }}" alt="Profile Picture">
             </div>
     
             <!-- Profile Details -->

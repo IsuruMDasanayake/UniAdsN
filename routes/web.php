@@ -13,7 +13,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutSectionController;
+use App\Http\Controllers\CourseApplicationController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +84,8 @@ Route::middleware(['auth'])->group(function () {
 
 //Institution profile shows to normal user
 Route::get('/institutions/{id}/profile', [InstituteController::class, 'showProfile'])->name('frontend.profile.institute-edit');
+Route::get('/institutes/{id}/posts-scroll', [PostController::class, 'loadMorePosts'])->name('institutes.posts.scroll');
+
 
 Route::put('/institutions/{id}', [InstituteController::class, 'instituteupdate'])->name('updateInstitute');
 
@@ -135,6 +139,8 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events
 
 Route::get('/feed', [PostController::class, 'showFeed'])->name('frontend.feed.feed');
 Route::get('/feed', [EventController::class, 'showEvent'])->name('feed');
+Route::get('/posts/load-more', [PostController::class, 'loadMore'])->name('posts.loadMore');
+
 
 
 
@@ -186,3 +192,15 @@ Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetCode'
 Route::get('reset-password', [ForgotPasswordController::class, 'showResetForm'])->name('password.resetForm');
 Route::post('reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.reset');
 Route::get('confirm-password', [ForgotPasswordController::class, 'showConfirmForm'])->name('confirm.passwordForm');
+
+
+//Apply for course
+Route::post('/course/apply/{institute_id}', [CourseApplicationController::class, 'apply'])->name('course.apply');
+
+//Events
+Route::get('/events', [EventController::class, 'index']);
+
+
+//Search function
+Route::get('/search', [SearchController::class, 'search'])->name('search.results');
+

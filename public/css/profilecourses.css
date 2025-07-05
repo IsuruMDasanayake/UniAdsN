@@ -1,0 +1,200 @@
+/* Grid Styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .course-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .course-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 0 10px;
+        }
+
+        /* Modal Styling */
+        .modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 15px;
+}
+
+
+
+.modal-image {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.modal-text {
+  flex: 1;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.modal-description {
+  font-size: 16px;
+  color: #555;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  background-color: black;
+}
+
+.close:hover {
+  color: #ffffff;
+}
+
+.modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #4b545c;
+}
+
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f9f9f9;
+}
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-body {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-image {
+                width: 100%;
+            }
+
+            .modal-description {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-title {
+                font-size: 20px;
+            }
+
+            .modal-description {
+                font-size: 14px;
+            }
+        }

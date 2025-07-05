@@ -2,72 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <title>Course Search Results</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <!-- FontAwesome & CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <!-- Font Awesome and Custom CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
     <link rel="stylesheet" href="{{ asset('css/categories.css') }}">
     <script src="{{ asset('js/navbar.js') }}"></script>
-    <style>
-        
-
-
-    </style>
 </head>
 <body>
-    {{-- Include Navbar --}}
-    @include('frontend.navbar')
+@include('frontend.navbar')
 
-    <div class="container">
-        <h1 class="page-title"> {{ $filterValue }}</h1>
-        @forelse ($posts as $post)
-            <div class="post-card">
-                <div class="post-image-wrapper">
-                    <img class="post-image" src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
+<div class="container">
+    <h1 class="page-title">Search Results for "{{ $query }}"</h1>
+
+    @forelse ($posts as $post)
+        <div class="post-card">
+            <div class="post-image-wrapper">
+                <img class="post-image" src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
+            </div>
+            <div class="post-details">
+                <div class="institute-details">
+                    <a href="{{ url('/institutions/' . $post->institute->id . '/profile') }}">
+                        <img class="profile-picture" src="{{ asset('storage/' . ($post->institute->profile_photo ?? 'images/default-logo.png')) }}" alt="Institute Logo">
+                    </a>
+                    <a href="{{ url('/institutions/' . $post->institute->id . '/profile') }}" class="institute-name-link">
+                        <span class="institute-name">{{ $post->institute->institute_name }}</span>
+                    </a>
+                    <p class="post-timestamp">{{ $post->created_at->format('F j, Y') }}</p>
                 </div>
-                <div class="post-details">
-                    <div class="institute-details">
-    <a href="{{ url('/institutions/' . $post->institute->id . '/profile') }}">
-        <img class="profile-picture" src="{{ asset('storage/' . ($post->institute->profile_photo ?? 'images/default-logo.png')) }}" alt="Institute Logo">
-    </a>
 
-    <a href="{{ url('/institutions/' . $post->institute->id . '/profile') }}" class="institute-name-link">
-        <span class="institute-name">{{ $post->institute->institute_name }}</span>
-    </a>
+                <h2 class="post-title">{{ $post->title }}</h2>
+                <h3 class="post-description">{{ $post->small_description }}</h3>
+                <p class="post-meta">{{ $post->course_type }} / {{ $post->duration }} / {{ $post->attendance_type }}</p>
 
-    <p class="post-timestamp">{{ $post->created_at->format('F j, Y') }}</p>
+                <a href="javascript:void(0)" 
+                   class="programme-link" 
+                   data-title="{{ $post->title }}" 
+                   data-description="{{ e($post->description) }}" 
+                   data-image="{{ asset('storage/' . $post->image) }}" 
+                   data-institute-id="{{ $post->institute->id }}"
+                   data-contact="{{ $post->institute->contact_number }}"
+                   onclick="openModalFromLink(this)">
+                   <br>View Programme Information
+                </a>
+            </div>
+        </div>
+    @empty
+        <p>No courses found with the title "{{ $query }}".</p>
+    @endforelse
 </div>
 
-                    <h2 class="post-title">{{ $post->title }}</h2>
-                    <h3 class="post-description">{{ $post->small_description }}</h3>
-                    <p class="post-meta">{{ $post->course_type }} / {{ $post->duration }} / {{ $post->attendance_type }}</p>
-                    <a href="javascript:void(0)" 
-   class="programme-link" 
-   data-title="{{ $post->title }}" 
-   data-description="{{ e($post->description) }}" 
-   data-image="{{ asset('storage/' . $post->image) }}" 
-   data-institute-id="{{ $post->institute->id }}"
-   data-contact="{{ $post->institute->contact_number }}"
-   onclick="openModalFromLink(this)">
-   <br>View Programme Information
-</a>
 
 
-
-                    
-                </div>
-            </div>
-        @empty
-            <p>No posts found for {{ $filterType }}: {{ $filterValue }}</p>
-        @endforelse
-    </div>
-    
-
-    <!-- Programme Info Modal -->
+<!-- Programme Info Modal -->
 <div id="programmeModal" class="programme-modal">
   <div class="programme-modal-content">
     <span class="programme-close-btn" onclick="closeProgrammeModal()">&times;</span>
@@ -79,8 +69,6 @@
     <div class="programme-footer">
       <button class="btn-primary" onclick="openApplyModal()">Apply Now</button>
       <button class="btn-secondary" onclick="openMoreInfoModal()">Get More Information</button>
-
-
     </div>
   </div>
 </div>
@@ -91,10 +79,9 @@
     <span class="programme-close-btn" onclick="closeApplyModal()">&times;</span>
     <h3 id="applyCourseTitle" class="programme-title">Apply for Course</h3>
     <form id="applyForm" method="POST" action="">
-    @csrf
-    <input type="hidden" name="course_title" id="hiddenCourseTitle">
-    <input type="hidden" name="institute_id" id="hiddenInstituteId">
- <!-- optional if needed -->
+      @csrf
+      <input type="hidden" name="course_title" id="hiddenCourseTitle">
+      <input type="hidden" name="institute_id" id="hiddenInstituteId">
 
       <div class="form-group">
         <label for="applicant_name">Your Name</label>
@@ -117,8 +104,6 @@
   </div>
 </div>
 
-
-    
 <!-- More Information Modal -->
 <div id="infoModal" class="programme-modal" style="display:none; justify-content:center; align-items:center;">
   <div class="programme-modal-content">
@@ -128,11 +113,11 @@
   </div>
 </div>
 
+<script src="{{ asset('js/modal.js') }}"></script>
 
 
-
-    <script>
-let currentInstitutePhone = null; // Declare globally
+<script>
+let currentInstitutePhone = null;
 
 function openModalFromLink(link) {
     const title = link.dataset.title;
@@ -141,52 +126,45 @@ function openModalFromLink(link) {
     const instituteId = link.dataset.instituteId;
     const contact = link.dataset.contact;
 
-    currentInstitutePhone = contact; // store for use later
+    currentInstitutePhone = contact;
 
     document.getElementById('programmeTitle').innerText = title;
     document.getElementById('programmeDescription').innerText = description;
     document.getElementById('programmeImage').src = image;
 
-    // Set values for Apply modal
     document.getElementById('hiddenCourseTitle').value = title;
+    document.getElementById('hiddenInstituteId').value = instituteId;
 
-    // Set form action
     const form = document.getElementById('applyForm');
     form.action = `/course/apply/${instituteId}`;
 
-    // Show the modal
     document.getElementById('programmeModal').style.display = 'flex';
-}
-
-
-function openApplyModal() {
-    document.getElementById('programmeModal').style.display = 'none';
-    document.getElementById('applyModal').style.display = 'flex';
 }
 
 function closeProgrammeModal() {
     document.getElementById('programmeModal').style.display = 'none';
 }
 
+function openApplyModal() {
+    document.getElementById('programmeModal').style.display = 'none';
+    document.getElementById('applyModal').style.display = 'flex';
+}
+
 function closeApplyModal() {
     document.getElementById('applyModal').style.display = 'none';
 }
 
-
-
 function openMoreInfoModal() {
-  const modal = document.getElementById('infoModal');
-  const messageEl = document.getElementById('infoMessage');
+    const modal = document.getElementById('infoModal');
+    const messageEl = document.getElementById('infoMessage');
 
-  messageEl.innerHTML = `If you want more information about this post, please call the institute at: <strong>${currentInstitutePhone}</strong>`;
-  modal.style.display = 'flex';
+    messageEl.innerHTML = `If you want more information about this post, please call the institute at: <strong>${currentInstitutePhone}</strong>`;
+    modal.style.display = 'flex';
 }
 
 function closeInfoModal() {
-  const modal = document.getElementById('infoModal');
-  modal.style.display = 'none';
+    document.getElementById('infoModal').style.display = 'none';
 }
-
 </script>
 
 </body>
